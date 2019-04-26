@@ -10,6 +10,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import www.sumanmyon.com.admobbeginner.InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private AdView adView;
@@ -19,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent interstitialAdIntent = new Intent(this,InterstitialAdUnitActivity.class);
-        startActivity(interstitialAdIntent);
-
+        //start Intent For Different AdMob Demos
+        startIntentForDifferentAdMobDemos();
 
         //initalize AdMob                      //here i have put sample id.... plz put real id to get real ad
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
@@ -75,5 +76,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Ad Test","user is about to return to the app after tapping on an ad.");
             }
         });
+    }
+
+    private void startIntentForDifferentAdMobDemos() {
+//        Intent interstitialAdIntent = new Intent(this,InterstitialAdUnitActivity.class);
+//        startActivity(interstitialAdIntent);
+
+        Intent interstitialAdSlidingImageIntent = new Intent(this, InterstitialAdsSlidingImagesActivity.class);
+        startActivity(interstitialAdSlidingImageIntent);
     }
 }
