@@ -1,5 +1,6 @@
 package www.sumanmyon.com.admobbeginner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent interstitialAdIntent = new Intent(this,InterstitialAdUnitActivity.class);
+        startActivity(interstitialAdIntent);
+
 
         //initalize AdMob                      //here i have put sample id.... plz put real id to get real ad
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
