@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity"></activity>
+        <activity android:name=".NativeAdsPackage.NativeAdsActivity"></activity>
+        <activity android:name=".InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity" />
         <activity android:name=".InterstitialAdUnitActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -17,9 +18,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />

@@ -9,8 +9,10 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 import www.sumanmyon.com.admobbeginner.InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity;
+import www.sumanmyon.com.admobbeginner.NativeAdsPackage.NativeAdsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
 //        Intent interstitialAdIntent = new Intent(this,InterstitialAdUnitActivity.class);
 //        startActivity(interstitialAdIntent);
 
-        Intent interstitialAdSlidingImageIntent = new Intent(this, InterstitialAdsSlidingImagesActivity.class);
-        startActivity(interstitialAdSlidingImageIntent);
+//        Intent interstitialAdSlidingImageIntent = new Intent(this, InterstitialAdsSlidingImagesActivity.class);
+//        startActivity(interstitialAdSlidingImageIntent);
+
+
+        Intent nativeAdsIntent = new Intent(this, NativeAdsActivity.class);
+        startActivity(nativeAdsIntent);
     }
 }
