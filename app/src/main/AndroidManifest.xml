@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InterstitialAdsSlidingImagesActivity"></activity>
+        <activity android:name=".InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity"></activity>
         <activity android:name=".InterstitialAdUnitActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

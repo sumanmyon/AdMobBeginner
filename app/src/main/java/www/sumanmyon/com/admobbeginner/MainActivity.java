@@ -10,6 +10,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import www.sumanmyon.com.admobbeginner.InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private AdView adView;
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 //        Intent interstitialAdIntent = new Intent(this,InterstitialAdUnitActivity.class);
 //        startActivity(interstitialAdIntent);
 
-        Intent interstitialAdSlidingImageIntent = new Intent(this,InterstitialAdsSlidingImagesActivity.class);
+        Intent interstitialAdSlidingImageIntent = new Intent(this, InterstitialAdsSlidingImagesActivity.class);
         startActivity(interstitialAdSlidingImageIntent);
     }
 }
