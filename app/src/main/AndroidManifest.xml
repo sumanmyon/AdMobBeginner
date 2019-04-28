@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RewardedVideoAdsActivity"></activity>
+        <activity android:name=".RewardedAds.RewardedVideoAdsBeta2019Activity"></activity>
+        <activity android:name=".RewardedAds.RewardedVideoAdsActivity" />
         <activity android:name=".NativeAdsPackage.NativeAdsActivity" />
         <activity android:name=".InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity" />
         <activity android:name=".InterstitialAdUnitActivity" />
