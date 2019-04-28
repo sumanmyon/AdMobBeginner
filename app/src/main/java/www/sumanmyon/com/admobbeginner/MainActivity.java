@@ -88,7 +88,10 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(interstitialAdSlidingImageIntent);
 
 
-        Intent nativeAdsIntent = new Intent(this, NativeAdsActivity.class);
-        startActivity(nativeAdsIntent);
+//        Intent nativeAdsIntent = new Intent(this, NativeAdsActivity.class);
+//        startActivity(nativeAdsIntent);
+
+        Intent rewardedAdsIntent = new Intent(this, RewardedVideoAdsActivity.class);
+        startActivity(rewardedAdsIntent);
     }
 }
