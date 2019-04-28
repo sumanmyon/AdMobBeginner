@@ -19,8 +19,8 @@ import www.sumanmyon.com.admobbeginner.R;
 
 public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
 
-    private Button rewardedAdsButton;
-    private RewardedAd rewardedAd;
+    private Button rewardedAdsButton,rewardedAdPreloadButton;
+    private RewardedAd rewardedAd,rewardedAd1, rewardedAdPreload;
 
 
     @Override
@@ -28,10 +28,12 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video_ads_beta2019);
         rewardedAdsButton = (Button)findViewById(R.id.rewardedAds_Beta);
+        rewardedAdPreloadButton = (Button)findViewById(R.id.rewardedAds_Beta2);
 
         //1.  initalize AdMob                      //here i have put sample id.... plz put real id to get real ad
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 
+        //2...5 RewardedAd
         //2. instantiating a RewardedAd
         rewardedAd = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
 
@@ -84,5 +86,67 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
             }
         });
 
+
+
+        //6...7   RewardedAd for pre load ads
+        //6. calling method RewardedAd
+        rewardedAdPreload = createAndLoadRewardedAd();
+        rewardedAdPreloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //7. Show preload the ad
+                showPreloadAds();
+            }
+        });
+
+        
+
+    }
+
+    private void showPreloadAds() {
+        if(rewardedAdPreload.isLoaded()){
+            Activity activity = RewardedVideoAdsBeta2019Activity.this;
+
+            RewardedAdCallback callback = new RewardedAdCallback(){
+                @Override
+                public void onRewardedAdOpened() {
+
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    rewardedAdPreload = createAndLoadRewardedAd();
+                }
+
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+
+                }
+
+                @Override
+                public void onRewardedAdFailedToShow(int i) {
+
+                }
+            };
+            rewardedAdPreload.show(activity,callback);
+        }else {
+            Toast.makeText(RewardedVideoAdsBeta2019Activity.this,"Failed to load",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public RewardedAd createAndLoadRewardedAd() {
+        RewardedAd ad = new RewardedAd(this, "ca-app-pub-3940256099942544/5224354917");
+
+        RewardedAdLoadCallback loadCallback = new RewardedAdLoadCallback(){
+            @Override
+            public void onRewardedAdLoaded() {
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(int i) {
+            }
+        };
+        ad.loadAd(new AdRequest.Builder().build(), loadCallback);
+        return ad;
     }
 }

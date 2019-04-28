@@ -12,4 +12,11 @@
         android:text="Rewarded Ads Beta Test 2019"
         android:id="@+id/rewardedAds_Beta"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rewardedAds_Beta"
+        android:text="Rewarded Ads Beta Test 2019 to preload the next rewarded ad"
+        android:id="@+id/rewardedAds_Beta2"/>
+
 </RelativeLayout>
