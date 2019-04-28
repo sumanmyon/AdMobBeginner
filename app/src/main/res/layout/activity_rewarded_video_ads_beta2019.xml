@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RewardedAds.RewardedVideoAdsBeta2019Activity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rewarded Ads Beta Test 2019"
+        android:id="@+id/rewardedAds_Beta"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rewardedAds_Beta"
+        android:text="Rewarded Ads Beta Test 2019 to preload the next rewarded ad"
+        android:id="@+id/rewardedAds_Beta2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rewardedAds_Beta2"
+        android:text="Rewarded Ads Beta Test 2019 Loading multiple rewarded ads"
+        android:id="@+id/rewardedAds_Beta3"/>
+
+</RelativeLayout>

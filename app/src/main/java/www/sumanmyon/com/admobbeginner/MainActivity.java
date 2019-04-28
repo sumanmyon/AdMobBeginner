@@ -9,10 +9,9 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.NativeExpressAdView;
 
-import www.sumanmyon.com.admobbeginner.InterstitialAdsSlidingImagesPackage.InterstitialAdsSlidingImagesActivity;
-import www.sumanmyon.com.admobbeginner.NativeAdsPackage.NativeAdsActivity;
+import www.sumanmyon.com.admobbeginner.RewardedAds.RewardedVideoAdsActivity;
+import www.sumanmyon.com.admobbeginner.RewardedAds.RewardedVideoAdsBeta2019Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
 //        Intent nativeAdsIntent = new Intent(this, NativeAdsActivity.class);
 //        startActivity(nativeAdsIntent);
 
-        Intent rewardedAdsIntent = new Intent(this, RewardedVideoAdsActivity.class);
-        startActivity(rewardedAdsIntent);
+//        Intent rewardedAdsIntent = new Intent(this, RewardedVideoAdsActivity.class);
+//        startActivity(rewardedAdsIntent);
+
+        Intent rewardedAdsBetaIntent = new Intent(this, RewardedVideoAdsBeta2019Activity.class);
+        startActivity(rewardedAdsBetaIntent);
     }
 }
