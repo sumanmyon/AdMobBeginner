@@ -19,8 +19,13 @@ import www.sumanmyon.com.admobbeginner.R;
 
 public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
 
-    private Button rewardedAdsButton,rewardedAdPreloadButton;
-    private RewardedAd rewardedAd,rewardedAd1, rewardedAdPreload;
+    private Button rewardedAdsButton,rewardedAdPreloadButton, rewardedAdsMultipleButton;
+    private RewardedAd rewardedAd, rewardedAdPreload;
+
+    // multiple rewarded ads
+    private RewardedAd gameOverRewardedAd;
+    private RewardedAd extraCoinsRewardedAd;
+
 
 
     @Override
@@ -29,6 +34,8 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
         setContentView(R.layout.activity_rewarded_video_ads_beta2019);
         rewardedAdsButton = (Button)findViewById(R.id.rewardedAds_Beta);
         rewardedAdPreloadButton = (Button)findViewById(R.id.rewardedAds_Beta2);
+        rewardedAdsMultipleButton = (Button)findViewById(R.id.rewardedAds_Beta3);
+
 
         //1.  initalize AdMob                      //here i have put sample id.... plz put real id to get real ad
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
@@ -95,15 +102,25 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //7. Show preload the ad
-                showPreloadAds();
+                showPreloadAds("preload");
             }
         });
 
-        
+
+        //8...... Loading multiple rewarded ads
+        gameOverRewardedAd = createAndLoadRewardedAd("ca-app-pub-3940256099942544/5224354917");
+        extraCoinsRewardedAd = createAndLoadRewardedAd("ca-app-pub-3940256099942544/5224354917");
+        rewardedAdsMultipleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //7. Show preload the ad
+                showPreloadAds("multiple");
+            }
+        });
 
     }
 
-    private void showPreloadAds() {
+    private void showPreloadAds(final String string) {
         if(rewardedAdPreload.isLoaded()){
             Activity activity = RewardedVideoAdsBeta2019Activity.this;
 
@@ -115,7 +132,12 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
 
                 @Override
                 public void onRewardedAdClosed() {
-                    rewardedAdPreload = createAndLoadRewardedAd();
+                    if(string.equals("preload"))
+                         rewardedAdPreload = createAndLoadRewardedAd();
+                    else if(string.equals("multiple")){
+                        gameOverRewardedAd = createAndLoadRewardedAd("ca-app-pub-3940256099942544/5224354917");
+                        extraCoinsRewardedAd = createAndLoadRewardedAd("ca-app-pub-3940256099942544/5224354917");
+                    }
                 }
 
                 @Override
@@ -128,7 +150,13 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
 
                 }
             };
-            rewardedAdPreload.show(activity,callback);
+            if(string.equals("preload"))
+                rewardedAdPreload.show(activity,callback);
+            else if(string.equals("multiple")){
+                gameOverRewardedAd.show(activity,callback);
+                extraCoinsRewardedAd.show(activity,callback);
+            }
+
         }else {
             Toast.makeText(RewardedVideoAdsBeta2019Activity.this,"Failed to load",Toast.LENGTH_LONG).show();
         }
@@ -149,4 +177,23 @@ public class RewardedVideoAdsBeta2019Activity extends AppCompatActivity {
         ad.loadAd(new AdRequest.Builder().build(), loadCallback);
         return ad;
     }
+
+    // multiple rewarded ads
+    public RewardedAd createAndLoadRewardedAd(String adUnitId) {
+        RewardedAd rewardedAd = new RewardedAd(this, adUnitId);
+        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                // Ad successfully loaded.
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(int errorCode) {
+                // Ad failed to load.
+            }
+        };
+        rewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
+        return rewardedAd;
+    }
+
 }
